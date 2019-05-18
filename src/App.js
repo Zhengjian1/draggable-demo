@@ -14,9 +14,9 @@ class App extends Component {
   render() {
 
     const quoteMap = {
-      '1': getQuotes(10),
-      '2': getQuotes(10),
-      '3': getQuotes(10),
+      '1': getQuotes(4),
+      '2': getQuotes(4),
+      '3': getQuotes(4),
     };
     
     return (

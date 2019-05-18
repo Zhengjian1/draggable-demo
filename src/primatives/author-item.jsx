@@ -5,8 +5,8 @@ import { colors } from '@atlaskit/theme';
 import { grid } from '../constants';
 
 const Div = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 330px;
+  height: 200px;
   font-size:20px;
   display: flex;
   justify-content:center;

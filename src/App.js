@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
+import { getQuotes } from './data';
+import QuoteApp from './QuoteApp';
 
 
 class App extends Component {
@@ -9,13 +11,17 @@ class App extends Component {
     data: []
   }
 
-
   render() {
+
+    const quoteMap = {
+      '1': getQuotes(10),
+      '2': getQuotes(10),
+      '3': getQuotes(10),
+    };
     
     return (
       <div className="App"  >
-        
-        <div className='footer'>footer</div>
+        <QuoteApp initial={quoteMap} />
       </div>
     );
   }

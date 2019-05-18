@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -23,8 +21,56 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-  </head>
-  <body>
+    <!-- <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+    <script>eruda.init();</script> -->
+    <script>
+        if (/eruda=true/.test(window.location)) {
+            var ele = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.src = '//cdn.jsdelivr.net/npm/eruda';
+            ele.appendChild(script);
+            script.onload = function () {
+                eruda.init()
+            }
+        };
+    </script>
+    <script>
+        (function (win, doc) {
+            var docEl = doc.documentElement;
+
+            function setRemUnit() {
+                var docWidth = docEl.clientWidth;
+                var rem = docWidth / 10;
+                docEl.style.fontSize = rem + 'px';
+            }
+
+            win.addEventListener('resize', function () {
+                setRemUnit();
+            }, false);
+            win.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit();
+                }
+            }, false);
+
+            setRemUnit();
+
+            if (win.devicePixelRatio && win.devicePixelRatio >= 2) {
+                var testEl = doc.createElement('div');
+                var fakeBody = doc.createElement('body');
+                testEl.style.border = '0.5px solid transparent';
+                fakeBody.appendChild(testEl);
+                docEl.appendChild(fakeBody);
+                if (testEl.offsetHeight === 1) {
+                    docEl.classList.add('hairlines');
+                }
+                docEl.removeChild(fakeBody);
+            }
+        })(window, document);
+    </script>
+</head>
+
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -37,5 +83,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
